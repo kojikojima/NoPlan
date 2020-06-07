@@ -7,45 +7,33 @@ using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody2D rigi;
+    [SerializeField] private float speed = 10f;
+
+    private Rigidbody2D rb;
 
     /// <summary>
     /// あわけ
     /// </summary>
     private void Awake()
     {
-        rigi = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+
+        var vec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
 
         Observable.EveryUpdate()
-          .Where(_ => Input.GetKey(KeyCode.W))
+          .Do(_ => { vec = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")); })
+          .Where(_ => vec != Vector2.zero)
           .Subscribe(_ => 
           {
-              var sequence = rigi.DOMoveY( 5f, 1f)
-                .SetRelative(true);
-          });
+              // 移動量制限
+              if (vec.sqrMagnitude > Mathf.Sqrt(1f))
+              {
+                  vec = vec.normalized;
+              }
 
-        Observable.EveryUpdate()
-          .Where(_ => Input.GetKey(KeyCode.A))
-          .Subscribe(_ =>
-          {
-              var sequence = rigi.DOMoveX(-5f, 1f)
-                .SetRelative(true);
-          });
+              rb.MovePosition(rb.position + vec * speed * Time.fixedDeltaTime);
 
-        Observable.EveryUpdate()
-          .Where(_ => Input.GetKey(KeyCode.S))
-          .Subscribe(_ =>
-          {
-              var sequence = rigi.DOMoveY(-5f, 1f)
-                .SetRelative(true);
-          });
-
-        Observable.EveryUpdate()
-          .Where(_ => Input.GetKey(KeyCode.D))
-          .Subscribe(_ =>
-          {
-              var sequence = rigi.DOMoveX( 50000f, 1f)
-                .SetRelative(true);
+              Debug.LogFormat("{0},{1}", vec.x, vec.y);
           });
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         var player = Instantiate(playerPrefab);
-        mainCamera.transform.parent = player.transform;
+
+        Observable.EveryLateUpdate()
+            .Subscribe(_ =>
+            {
+                mainCamera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, mainCamera.transform.position.z);
+            }).AddTo(this);
     }
 }
