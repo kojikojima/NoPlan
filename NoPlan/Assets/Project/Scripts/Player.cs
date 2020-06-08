@@ -32,8 +32,6 @@ public class Player : MonoBehaviour
               }
 
               rb.MovePosition(rb.position + vec * speed * Time.fixedDeltaTime);
-
-              Debug.LogFormat("{0},{1}", vec.x, vec.y);
           });
     }
 }
