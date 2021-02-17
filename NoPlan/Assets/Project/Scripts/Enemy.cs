@@ -20,7 +20,10 @@ public class Enemy : MonoBehaviour
                 var bullet = x.gameObject.GetComponent<Bullet>();
                 if (bullet != null)
                 {
-                    TakeDamage(bullet.Fire);
+                    if(x.tag == "PlayerBullet")
+                    {
+                        TakeDamage(bullet.Fire);
+                    }
                 }
             }).AddTo(this);
 

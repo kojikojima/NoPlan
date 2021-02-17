@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8007967601512919322}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13951,7 +13951,7 @@ GameObject:
   - component: {fileID: 4481436258889023285}
   m_Layer: 0
   m_Name: Object
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13996,7 +13996,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: -10, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -14014,7 +14014,7 @@ Tilemap:
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
+      m_AllTileFlags: 1
   - first: {x: 13, y: 6, z: 0}
     second:
       serializedVersion: 2
@@ -14348,26 +14348,6 @@ CompositeCollider2D:
         Y: 59994000
       - X: 139987008
         Y: 59994000
-    - - X: 8750000
-        Y: 16874000
-      - X: 8125188
-        Y: 19998063
-      - X: 10000000
-        Y: 20623000
-      - X: 10000000
-        Y: 29998000
-      - X: 0
-        Y: 29998000
-      - X: 0
-        Y: 19998000
-      - X: 2499750
-        Y: 19998000
-      - X: 1250000
-        Y: 14999000
-      - X: 1250000
-        Y: 9999000
-      - X: 8750000
-        Y: 9999000
     - - X: -89989992
         Y: 26248000
       - X: -91864992
@@ -14398,16 +14378,6 @@ CompositeCollider2D:
       - {x: 12.9987, y: 7.6242895}
       - {x: 12.998703, y: 6.1243944}
       - {x: 13.061217, y: 5.9994}
-    - - {x: 0.87497073, y: 0.9999}
-      - {x: 0.8749995, y: 1.6874022}
-      - {x: 0.8125426, y: 1.9998144}
-      - {x: 1, y: 2.06232}
-      - {x: 0.99997073, y: 2.9998}
-      - {x: 0, y: 2.9997709}
-      - {x: 0.000029300001, y: 1.9998}
-      - {x: 0.2499654, y: 1.9997616}
-      - {x: 0.125, y: 1.4998972}
-      - {x: 0.1250293, y: 0.9999}
     - - {x: -8.999029, y: 0.9999}
       - {x: -8.999003, y: 2.6248062}
       - {x: -9.186515, y: 2.9373}

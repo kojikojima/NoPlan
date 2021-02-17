@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
             {
                 Vector2 pos = (Vector2)Input.mousePosition - new Vector2(Screen.width/2, Screen.height/2);
                 var bullet = Instantiate(bulletPrefab);
+                bullet.tag = "PlayerBullet";
                 bullet.transform.position = this.transform.position;
                 bullet.Shot(pos.normalized, 5f);
             });
