@@ -14,8 +14,10 @@ public class Bullet : MonoBehaviour
         Invoke("BulletDestroy", bulletLifeTime);
     }
 
-    public void Shot(Vector2 vec, float speed)
+    public void Shot(Vector2 vec, float speed, int atk)
     {
+        Fire = atk;
+
         var rb = GetComponent<Rigidbody2D>();
 
         this.transform.eulerAngles = new Vector3(0.0f, 0.0f, GetAim(rb.position, vec));
@@ -38,13 +40,13 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Wall" || other.tag == "Enemy")
+        if(other.tag == "Wall")
         {
             BulletDestroy();
         }
     }
 
-    private void BulletDestroy()
+    public void BulletDestroy()
     {
         Destroy(this.gameObject);
     }
