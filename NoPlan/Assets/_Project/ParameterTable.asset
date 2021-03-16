@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b6efce6af08584db3c5e7d5e0fef53, type: 3}
+  m_Name: ParameterTable
+  m_EditorClassIdentifier: 
+  dataList:
+  - Id: 1
+    name: 
+    prefa: {fileID: 8954470799908656050, guid: b7678708fa3f0f84ebd52ce021964cad, type: 3}
+    status:
+      hp: 10
+      atk: 5
+      def: 2
+      spd: 1
+  - Id: 2
+    name: 
+    prefa: {fileID: 8954470799908656050, guid: b7678708fa3f0f84ebd52ce021964cad, type: 3}
+    status:
+      hp: 10
+      atk: 5
+      def: 1
+      spd: 2

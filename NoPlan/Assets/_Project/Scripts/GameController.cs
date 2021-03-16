@@ -9,6 +9,12 @@ public class GameController : MonoBehaviour
     [SerializeField] private Enemy  enemyPrefab;
     [SerializeField] private Camera mainCamera;
 
+    public EnemyStatus enemyStatus;
+
+    public PlayerStatus myPlayerStatus;
+
+    public static GameController Instance { get; set; }
+
     private void Start()
     {
         var player = Instantiate(playerPrefab);
@@ -16,6 +22,7 @@ public class GameController : MonoBehaviour
 
         player.transform.position = new Vector3(-10f, 0f, 0f);
         enemy.transform.position = new Vector3( 10f, 0f, 0f);
+        enemy.SetUp(enemyStatus);
 
         Observable.EveryLateUpdate()
             .Subscribe(_ =>

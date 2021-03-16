@@ -11,15 +11,17 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private Bullet bulletPrefab;
 
+    private int hp;
+
     private Rigidbody2D rb;
-    private PlayeStatus playeStatus;
+    private PlayerStatus playeStatus;
 
     /// <summary>
     /// あわけ
     /// </summary>
     private void Awake()
     {
-        playeStatus = PlayeStatus.GetInstance();
+        //playeStatus = GameController.Instance.myPlayerStatus;
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour
                 var bullet = Instantiate(bulletPrefab);
                 bullet.tag = "PlayerBullet";
                 bullet.transform.position = this.transform.position;
-                bullet.Shot(pos.normalized, 5f, playeStatus.atk);
+                bullet.Shot(pos.normalized, 5f, 5/*playeStatus.atk*/);
             });
 
         this.OnTriggerEnter2DAsObservable()
@@ -64,12 +66,12 @@ public class Player : MonoBehaviour
                 }
             }).AddTo(this);
 
-        Observable.EveryUpdate()
-               .Where(_ => playeStatus.hp <= 0)
-               .Subscribe(_ =>
-               {
-                   Destroy(this.gameObject);
-               }).AddTo(this);
+        //Observable.EveryUpdate()
+        //       .Where(_ => playeStatus.hp <= 0)
+        //       .Subscribe(_ =>
+        //       {
+        //           Destroy(this.gameObject);
+        //       }).AddTo(this);
     }
 
     public bool TakeDamage(int damage)
